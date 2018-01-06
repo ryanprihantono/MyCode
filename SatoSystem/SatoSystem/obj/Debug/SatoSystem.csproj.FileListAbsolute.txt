@@ -1,0 +1,7 @@
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\SatoSystem\SatoSystem\bin\SatoSystem.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\SatoSystem\SatoSystem\bin\SatoSystem.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\SatoSystem\SatoSystem\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\SatoSystem\SatoSystem\obj\Debug\SatoSystem.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\SatoSystem\SatoSystem\obj\Debug\SatoSystem.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\SatoSystem\SatoSystem\obj\Debug\SatoSystem.Properties.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\SatoSystem\SatoSystem\obj\Debug\SatoSystem.csproj.GenerateResource.Cache

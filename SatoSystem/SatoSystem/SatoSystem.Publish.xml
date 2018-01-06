@@ -1,0 +1,11 @@
+<publishData>
+  <publishTarget publishUrl="E:\Data\Net\">
+    <file relUrl="bin/SatoSystem.dll" publishTime="08/29/2013 10:04:24" />
+    <file relUrl="bin/SatoSystem.pdb" publishTime="08/29/2013 10:04:23" />
+    <file relUrl="Default.aspx" publishTime="08/27/2013 03:56:56" />
+    <file relUrl="Site1.Master" publishTime="08/29/2013 08:23:20" />
+    <file relUrl="Index.aspx" publishTime="08/27/2013 05:26:10" />
+    <file relUrl="Report.aspx" publishTime="08/29/2013 10:04:22" />
+    <file relUrl="Web.config" publishTime="08/27/2013 02:04:23" />
+  </publishTarget>
+</publishData>
