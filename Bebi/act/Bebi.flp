@@ -1,0 +1,46 @@
+﻿<flash_project name="Bebi" version="1">
+    <project_folder name="act" expanded="false">
+        <project_file path="./Suara.as" filetype="as" />
+        <project_file path="./act1.fla" filetype="fla" profile="" />
+        <project_file path="./act2.fla" filetype="fla" profile="" />
+        <project_file path="./act3.fla" filetype="fla" profile="" />
+        <project_file path="./act4.fla" filetype="fla" profile="" />
+        <project_file path="./belajarBentuk.fla" filetype="fla" profile="" />
+        <project_file path="./belajarWarna.fla" filetype="fla" profile="" />
+        <project_file path="./bross.fla" filetype="fla" profile="" />
+        <project_file path="./credit.fla" filetype="fla" profile="" />
+        <project_file path="./dressup.fla" filetype="fla" profile="" />
+        <project_file path="./gamebonus.fla" filetype="fla" profile="" />
+        <project_file path="./highscore.fla" filetype="fla" profile="" />
+        <project_file path="./judul.fla" filetype="fla" profile="" />
+        <project_file path="./memory1.fla" filetype="fla" profile="" />
+        <project_file path="./mewarnai.fla" filetype="fla" profile="" />
+        <project_file path="./nama.fla" filetype="fla" profile="" />
+        <project_file path="./nama1.fla" filetype="fla" profile="" />
+        <project_file path="./puzle.fla" filetype="fla" profile="" />
+        <project_file path="./rumahBebi.fla" filetype="fla" profile="" />
+        <project_file path="./rumahMimi.fla" filetype="fla" profile="" />
+        <project_file path="./tiket.fla" filetype="fla" profile="" />
+        <project_file path="./act1.swf" filetype="swf" />
+        <project_file path="./act2.swf" filetype="swf" />
+        <project_file path="./act3.swf" filetype="swf" />
+        <project_file path="./act4.swf" filetype="swf" />
+        <project_file path="./belajarBentuk.swf" filetype="swf" />
+        <project_file path="./belajarWarna.swf" filetype="swf" />
+        <project_file path="./bross.swf" filetype="swf" />
+        <project_file path="./credit.swf" filetype="swf" />
+        <project_file path="./dressup.swf" filetype="swf" />
+        <project_file path="./gamebonus.swf" filetype="swf" />
+        <project_file path="./highscore.swf" filetype="swf" />
+        <project_file path="./judul.swf" filetype="swf" />
+        <project_file path="./memory1.swf" filetype="swf" />
+        <project_file path="./mewarnai.swf" filetype="swf" />
+        <project_file path="./nama.swf" filetype="swf" />
+        <project_file path="./nama1.swf" filetype="swf" />
+        <project_file path="./puzle.swf" filetype="swf" />
+        <project_file path="./rumahBebi.swf" filetype="swf" />
+        <project_file path="./rumahMimi.swf" filetype="swf" />
+        <project_file path="./tiket.swf" filetype="swf" />
+    </project_folder>
+    <project_file path="../main.fla" filetype="fla" profile="" def_file="true" />
+</flash_project>

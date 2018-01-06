@@ -1,0 +1,16 @@
+[namaPemain]
+type=array
+[namaPemain.0]
+type=string
+value=YESSY
+[dataPemain]
+type=array
+[dataPemain.0]
+type=string
+value=pemain1.dat
+[namaPemain.1]
+type=string
+value=A
+[dataPemain.1]
+type=string
+value=pemain2.dat
