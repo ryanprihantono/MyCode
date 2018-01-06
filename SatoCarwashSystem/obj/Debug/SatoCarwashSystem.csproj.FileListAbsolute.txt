@@ -1,0 +1,186 @@
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe.config
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.pdb
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\ResolveAssemblyReference.cache
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Cashier.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.CustomerList.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Services.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.CheckIn.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Login.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.SatoCarwashSystem.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Properties.Resources.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.csproj.GenerateResource.Cache
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.exe
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.pdb
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterServices.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Payment.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditServices.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.WaitingList.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddFoodBeverages.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterFoodBeverages.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditOthers.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterOthers.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.FoodBeverages.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Others.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Voucher.resources
+F:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.VoucherPayment.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe.config
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.exe
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.pdb
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\ResolveAssemblyReference.cache
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Cashier.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.CustomerList.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.FoodBeverages.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Others.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Payment.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Services.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Voucher.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.VoucherPayment.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.CheckIn.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Login.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditOthers.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditServices.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddFoodBeverages.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterFoodBeverages.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterOthers.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterServices.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.SatoCarwashSystem.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Properties.Resources.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.WaitingList.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.csproj.GenerateResource.Cache
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.pdb
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportHeader.resources
+D:\New folder\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportDetail.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe.config
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.exe
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.pdb
+D:\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe
+D:\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.pdb
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\ResolveAssemblyReference.cache
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Cashier.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.CustomerList.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.FoodBeverages.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Others.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Payment.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Services.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Voucher.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.VoucherPayment.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.CheckIn.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Login.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditOthers.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditServices.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddFoodBeverages.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterFoodBeverages.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterOthers.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterServices.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportDetail.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportHeader.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.SatoCarwashSystem.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Properties.Resources.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.WaitingList.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.csproj.GenerateResource.Cache
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe.config
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.exe
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.pdb
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\ResolveAssemblyReference.cache
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Cashier.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.CustomerList.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.FoodBeverages.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Others.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Payment.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Services.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Voucher.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.VoucherPayment.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.CheckIn.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Login.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditOthers.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditServices.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddFoodBeverages.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterFoodBeverages.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterOthers.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterServices.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportDetail.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportHeader.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.SatoCarwashSystem.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Properties.Resources.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.WaitingList.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.csproj.GenerateResource.Cache
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.pdb
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.communicator.MessengerForm.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.settings.ConnectionSettings.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.communicator.MessengerForm.resources
+D:\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.settings.ConnectionSettings.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe.config
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.exe
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.pdb
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\ResolveAssemblyReference.cache
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Cashier.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.CustomerList.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.FoodBeverages.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Others.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Payment.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Services.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Voucher.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.VoucherPayment.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.CheckIn.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.communicator.MessengerForm.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.customer.Customer.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Login.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditOthers.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditServices.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddFoodBeverages.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterFoodBeverages.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterOthers.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterServices.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportDetail.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportHeader.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.SatoCarwashSystem.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Properties.Resources.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.settings.ConnectionSettings.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.WaitingList.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.csproj.GenerateResource.Cache
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.pdb
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe.config
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.exe
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.pdb
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\ResolveAssemblyReference.cache
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Cashier.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.CustomerList.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.FoodBeverages.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Others.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Payment.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Services.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.Voucher.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.cashier.VoucherPayment.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.CheckIn.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.communicator.MessengerForm.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.customer.Customer.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Login.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditOthers.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddEditServices.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.AddFoodBeverages.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterFoodBeverages.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterOthers.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.master.MasterServices.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportDetail.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.ReportHeader.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.SatoCarwashSystem.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.Properties.Resources.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.settings.ConnectionSettings.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.WaitingList.resources
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.csproj.GenerateResource.Cache
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.pdb
+D:\Some 'f' Work\- PT\Visual Studio\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.Cafe.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.customer.Customer.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.Cafe.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.settings.ChangePassword.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.report.Cafe.resources
+E:\BA7OE\SATO\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.settings.ChangePassword.resources
+D:\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SiemensOPCdotNETLib.dll
+F:\Backup\Tetchanz Backup\Data\Work II\SatoCarwashSystem\SatoCarwashSystem\bin\Debug\SatoCarwashSystem.exe.config
+F:\Backup\Tetchanz Backup\Data\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.exe
+F:\Backup\Tetchanz Backup\Data\Work II\SatoCarwashSystem\SatoCarwashSystem\obj\Debug\SatoCarwashSystem.pdb
