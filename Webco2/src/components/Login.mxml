@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" height="164" horizontalAlign="center" verticalAlign="middle" title="Login" initialize="initURL()">
+			<mx:Script>
+				<![CDATA[
+					import mx.rpc.events.FaultEvent;
+					import mx.rpc.events.ResultEvent;
+					import mx.managers.PopUpManager;
+					import components.Register;
+					import components.MainPanel;
+					import mx.controls.Alert;
+					import mx.core.IFlexDisplayObject;
+					import mx.core.UIComponent;
+					import classes.Session;
+					
+					private var session:Session = Session.getInstance();
+					
+					private function processLogin():void {
+						// Check credentials (not shown) then remove pop up.
+						if(webcoid.text == "" || password.text==""){
+							Alert.show("All field must be filled","Login Failure",Alert.OK);
+						}
+						else{
+							loginservice.send();
+						}
+						//showMainPanel();
+					}
+					private function showRegister():void {
+						// Create a non-modal TitleWindow container.
+						var helpWindow:IFlexDisplayObject =
+						PopUpManager.createPopUp(this, Register,true);
+						PopUpManager.centerPopUp(helpWindow);
+						
+					}
+					private function showMainPanel():void{
+						var helpWindow:IFlexDisplayObject =
+						PopUpManager.createPopUp(UIComponent(this.parentApplication), MainPanel,false);
+						helpWindow.addEventListener(Event.REMOVED,enableLogin);
+						this.visible = false;
+						
+					}
+					private function enableLogin(e:Event):void{
+						//Alert.show(e.target.toString(), 'Alert Box', mx.controls.Alert.OK);
+						if(e.target.toString().indexOf("List")==-1){
+							
+							this.visible = true;
+						}
+					}
+					private function onResult(e:ResultEvent):void{
+						if(e.result.session != null){
+							session.setAttribute("user",e.result.session);
+							showMainPanel();
+						}
+						else{
+							Alert.show("Wrong username or password","Login Failed",Alert.OK);
+						}
+					}
+					
+					private function onFault(e:FaultEvent):void{
+						//Alert.show("test");
+						Alert.show(e.fault.message,"Login Failed",Alert.OK);
+					}
+					private function initURL():void{
+						loginservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/dologin.php";
+					}
+				]]>
+			</mx:Script>
+			<mx:HTTPService id="loginservice" showBusyCursor="true" method="post" result="onResult(event)" fault="onFault(event)">
+				<mx:request xmlns="">
+					<webcoid>{webcoid.text}</webcoid>
+					<password>{password.text}</password>
+				</mx:request>
+			</mx:HTTPService>
+			<mx:Form>
+				<mx:FormItem label="Webco ID">
+					<mx:TextInput id="webcoid" width="100%"/>
+				</mx:FormItem> 
+				<mx:FormItem label="Password">
+					<mx:TextInput id="password" displayAsPassword="true" width="100%"/>
+				</mx:FormItem> 
+			</mx:Form>
+
+			<mx:Button click="showRegister();" label="Register" x="32" y="85"/>
+			<mx:Button click="processLogin();" label="Login" x="182" y="85"/>
+			
+</mx:TitleWindow>

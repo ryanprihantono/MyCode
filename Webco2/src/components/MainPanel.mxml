@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="246" height="534" initialize="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ListEvent;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.managers.PopUpManager;
+			import mx.core.IFlexDisplayObject;
+			import mx.core.UIComponent;
+			import mx.controls.Menu;
+			import mx.controls.Alert;
+            import mx.events.MenuEvent;
+            import classes.Session;
+			
+			[Bindable]
+			private var session:Session = Session.getInstance();
+			[Bindable]
+			private var myData:ArrayCollection;
+			[Bindable]
+			private var callingstatus:String="";
+			[Bindable]
+			private var from:String="";
+			
+			private var timer:Timer = new Timer(1000);
+			private var users:Array = new Array();
+			
+			private function init():void{
+				initURL();
+				this.title = "Halo Messenger - "+session.getAttribute("user");
+				getcontactservice.send();
+				timer.addEventListener(TimerEvent.TIMER,checknewchatsession);
+				timer.start();
+			}
+			
+			private function checknewchatsession(e:TimerEvent):void{
+				newchatsessionservice.send();
+				if(from!="" && from!=null){
+					//Alert.show(session.getAttribute("from"));
+					callingstatusservice.send();
+				}
+			}
+			
+			private function onNewChatSession(e:ResultEvent):void{
+				
+				if(e.result.books != null){
+					var arr:ArrayCollection = e.result.books.from;
+					//Alert.show(arr.length+":asdf","asdf",Alert.OK);
+					for(var i:int=0;i<arr.length;i++){
+						if(arr[i]!=session.getAttribute("user")){
+							if(users.length==0){
+								session.setAttribute("tempPriv",arr[i]);
+								from = arr[i];
+								users.push(arr[i]);
+								var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),Chat,false);
+								PopUpManager.centerPopUp(window);
+							}
+							else{
+								for(var j:int=0;j<users.length;j++){
+									if(users[j]!=arr[i]){
+										users.push(arr[i]);
+										session.setAttribute("tempPriv",arr[i]);
+										from = arr[i];
+										var window1:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),Chat,false);
+										PopUpManager.centerPopUp(window1);
+									}
+								}
+							}
+							
+						}
+					}
+					
+				}
+			}
+			
+			private function itemClicked(e:MenuEvent):void{
+				
+				//Alert.show("test", 'Alert Box', mx.controls.Alert.OK);
+				if(e.item.@label == "Logout"){
+					PopUpManager.removePopUp(this);
+				}
+			}
+			private function removeWindow(e:Event):void{
+				PopUpManager.removePopUp(this);
+			}
+			private function showAddContact():void{
+				var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),AddContact,false);
+				PopUpManager.centerPopUp(window);
+			}
+			private function showRoomList():void{
+				var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),RoomList,false);
+				PopUpManager.centerPopUp(window);
+			}
+			
+			private function onResult(e:ResultEvent):void{
+				//myData = e.result.item;
+				//Alert.show(myData.getItemAt(0).toString(),"trace",Alert.OK);
+				//friendlist.dataProvider = e.result.item.friend;
+				friendlist.dataProvider =  e.result.books.friend;
+			}
+			private function onFault(e:FaultEvent):void{
+				Alert.show(e.fault.message,"Connection Failed",Alert.OK);
+			}
+			private function privateChat(e:ListEvent):void{
+				
+				//Alert.show(e.itemRenderer.data.toString(),"trace",Alert.OK);
+				session.setAttribute("tempPriv",e.itemRenderer.data.toString());
+				var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),Chat,false);
+				PopUpManager.centerPopUp(window);
+			}
+			private function onStatus(e:ResultEvent):void{
+				//Alert.show(session.getAttribute("from"));
+				//Alert.show(e.result.satu);
+				//Alert.show(e.result.status+":"+e.result.sender+":"+e.result.messageid);
+				if(e.result.status == "calling" && e.result.sender != session.getAttribute("user")){
+					//Alert.show(e.result.status+":"+e.result.sender+":"+e.result.messageid);
+					if(users[users.length-1]==e.result.sender){
+						if(from!=""){
+							session.setAttribute("from",e.result.sender);
+							session.setAttribute("messageid",e.result.messageid);
+							var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),IncomingCall,false);
+							PopUpManager.centerPopUp(window);
+							from="";
+						}
+					}
+
+				}
+			}
+			private function initURL():void{
+				getcontactservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/getcontact.php";
+				newchatsessionservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/newchatsession.php";
+				callingstatusservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/callingstatus.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="getcontactservice" showBusyCursor="true" method="post" result="onResult(event)" fault="onFault(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="newchatsessionservice" method="post" result="onNewChatSession(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="callingstatusservice" method="post" result="onStatus(event)">
+		<mx:request xmlns="">
+			<webcoid1>{session.getAttribute("user")}</webcoid1>
+			<webcoid2>{from}</webcoid2>
+			<messageid>0</messageid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:MenuBar id="myMenuBar" labelField="@label" x="0" y="0" width="226" itemClick="itemClicked(event);">
+		<mx:XMLList>
+			<menuitem label="Messenger">
+				<menuitem label="Test"/>
+				<menuitem label="Logout" id="logout"/>
+			</menuitem>
+			<menuitem label="Contacts"/>
+			<menuitem label="Help"/>
+		</mx:XMLList>
+	</mx:MenuBar>
+	
+	<mx:List x="0" y="51" width="226" height="440" id="friendlist" itemDoubleClick="privateChat(event)" doubleClickEnabled="true">
+		
+	</mx:List>
+	<mx:Button x="22" y="25" label="Add Contact" width="96" click="showAddContact();"/>
+	<mx:Button x="132" y="25" label="Rooms" click="showRoomList();"/>
+</mx:TitleWindow>

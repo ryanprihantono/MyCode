@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="400" height="238" showCloseButton="true" close="onClose()" initialize="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import classes.Session;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.ResultEvent;
+			import mx.core.UIComponent;
+			import mx.controls.Button;
+			import mx.managers.PopUpManager;
+			import components.Register;
+			import mx.core.IFlexDisplayObject;
+			
+			[Bindable]
+			private var session:Session = Session.getInstance();
+			
+			private function init():void{
+				initURL();
+				initcreateroomservice.send();
+			}
+			
+			private function onClose():void{
+				PopUpManager.removePopUp(this);
+			}
+			private function onInit(e:ResultEvent):void{
+				roomcategory.dataProvider = e.result.books.roomcategory;
+				
+			}
+			private function changeType():void{
+				if(roomtype.selectedIndex == 0){
+					roompassword.enabled = false;
+				}
+				else{
+					roompassword.enabled = true;
+				}
+			}
+			private function createRoom():void{
+				if(roomname.text!=""){
+					if(roompassword.enabled == true){
+						if(roompassword.text==""){
+							Alert.show("Password must be filled");
+						}
+						else{
+							createroomservice.send();
+						}
+					}
+					else{
+						createroomservice.send();
+					}
+				}
+				else{
+					Alert.show("Room name must be filled");
+				}
+			}
+			private function onRoomCreated(e:ResultEvent):void{
+				//Alert.show(e.result.satu);
+				if(e.result.message != null)
+					Alert.show(e.result.message);
+				if(e.result.roomid !=null){
+					var roomid:String = e.result.roomid;
+					session.setAttribute("roomid",roomid);
+					if(session.getAttribute("room")=="chat"){			
+						var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),Conference,false);
+						PopUpManager.centerPopUp(window);
+					}
+					else if(session.getAttribute("room")=="multimedia"){
+						var window2:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),MultimediaConference,false);
+						PopUpManager.centerPopUp(window2);
+					}
+				}
+			}
+			private function initURL():void{
+				initcreateroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/initcreateroom.php";
+				createroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/createroom.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="initcreateroomservice" showBusyCursor="true" method="post" result="onInit(event)">
+		<mx:request xmlns="">
+			<room>{session.getAttribute("room")}</room>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="createroomservice" showBusyCursor="true" method="post" result="onRoomCreated(event)">
+		<mx:request xmlns="">
+			<roomname>{roomname.text}</roomname>
+			<category>{roomcategory.selectedIndex+1}</category>
+			<type>{roomtype.selectedIndex+1}</type>
+			<password>{roompassword.text}</password>
+			<room>{session.getAttribute("room")}</room>
+			<rm>{session.getAttribute("user")}</rm>
+		</mx:request>
+	</mx:HTTPService>
+	
+	<mx:Text x="10" y="19" text="Room Name"/>
+	<mx:Text x="10" y="49" text="Category"/>
+	<mx:Text x="10" y="79" text="Room Type"/>
+	<mx:Text x="10" y="109" text="Password"/>
+	
+	<mx:TextInput x="142" y="17" width="228" id="roomname"/>
+	<mx:ComboBox x="142" y="47" width="228" id="roomcategory">
+		
+	</mx:ComboBox>
+	<mx:ComboBox x="142" y="77" width="228" id="roomtype" change="changeType()">
+		<mx:dataProvider>
+		         <mx:String>Public</mx:String>
+		         <mx:String>Private</mx:String>
+		</mx:dataProvider>
+	</mx:ComboBox>
+	<mx:TextInput x="142" y="107" enabled="false" width="225" id="roompassword"/>
+	
+	<mx:Button x="158" y="151" label="Create" click="createRoom()"/>
+	<mx:Button x="271" y="151" label="Cancel" click="onClose()"/>
+	
+</mx:TitleWindow>

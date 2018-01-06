@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="1400" height="633" applicationComplete="init();">
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+			import mx.core.IFlexDisplayObject;
+			import components.Login;
+			import classes.Session;
+			
+			private var session:Session = Session.getInstance();
+			//private var baseUrl:String = "htttp://192.168.137.2:8000/Webco2/phpcode/";
+			
+			private function init():void{
+				session.setAttribute("ip","192.168.16.180");
+				//session.setAttribute("ip","192.168.137.2");
+				session.setAttribute("hostaddress","192.168.16.180:8000");
+				//session.setAttribute("hostaddress","192.168.137.2:8000");
+				showLogin();
+			}
+			private function showLogin():void {
+				// Create a non-modal TitleWindow container.
+				var helpWindow:IFlexDisplayObject =
+				PopUpManager.createPopUp(this, Login,false);
+				PopUpManager.centerPopUp(helpWindow);
+			}
+			/*public function getRoot():Object{
+				return this;
+			}*/
+		]]>
+	</mx:Script>
+	<mx:Image y="25" x="523.5" source="images/halo.png"/>
+	<mx:Image x="506" y="418" source="images/tag-line.png"/>
+</mx:Application>

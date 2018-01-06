@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="372" height="300" showCloseButton="true" initialize="init(event)" close="onClose(event)">
+	<mx:Script>
+		<![CDATA[
+			import classes.Session;
+			import classes.NetConnectionClient;
+			import mx.controls.Alert;
+			import mx.managers.PopUpManager;
+			
+			private var camera:Camera;
+			private var nc:NetConnection;
+			private var publisher:NetStream;
+			private var session:Session = Session.getInstance();
+			
+			private function init(e:Event):void{
+				this.title = "Video Call "+session.getAttribute("from")+" - "+session.getAttribute("user");
+				camera = Camera.getCamera();
+				if(camera){
+					send.attachCamera(camera);
+					nc = new NetConnection();
+					//nc.client = new NetConnectionClient();
+					//nc.objectEncoding = flash.net.ObjectEncoding.AMF0;
+					nc.connect("rtmp://"+session.getAttribute("ip")+":1935/live/Webco2");
+					nc.addEventListener(NetStatusEvent.NET_STATUS,publishStream);
+					
+				}
+				else{
+					Alert.show("Cannot access camera");
+				}
+			}
+			
+			private function publishStream(e:NetStatusEvent):void{
+				if(nc.connected){
+					publisher = new NetStream(nc);
+					camera.setMode(320, 240, 30);
+					publisher.attachCamera(camera);
+					publisher.attachAudio(Microphone.getMicrophone());
+					publisher.publish(session.getAttribute("user"));
+					//Alert.show("Published");
+					
+					received.source = "rtmp://"+session.getAttribute("ip")+"/live/Webco2/"+session.getAttribute("from");
+				}
+				else{
+					//Alert.show("Error Connection");
+				}
+			}
+			private function receive():void{
+				//received.source = "rtmp://192.168.137.2:1935/live/Webco2/"+session.getAttribute("user");
+				Alert.show(received.source);
+			}
+			private function onClose(e:Event):void{
+				send.attachCamera(null);
+				publisher.attachAudio(null);
+				publisher.attachCamera(null);
+				send.close();
+				publisher.close();
+				nc.close();
+				PopUpManager.removePopUp(this);
+			}
+		]]>
+	</mx:Script>
+	<mx:VideoDisplay x="16" y="10" width="320" height="240" id="received" live="true"/>
+	<mx:VideoDisplay x="237" y="173" width="96" height="72" id="send"/>
+</mx:TitleWindow>

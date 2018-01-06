@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="530" height="370" showCloseButton="true" initialize="init()" close="removeWindow(event)">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.managers.PopUpManager;
+			import mx.core.IFlexDisplayObject;
+			import mx.controls.Alert;
+			import components.Login;
+			import classes.Session;
+			
+			[Bindable]
+			private var session:Session = Session.getInstance();
+			[Bindable]
+			private var sessionchatid:String;
+			[Bindable]
+			private var from:String=session.getAttribute("tempPriv");
+			private var timer:Timer = new Timer(1000);
+			[Bindable]
+			private var newMsg:String = "";
+			[Bindable]
+			private var sendMsg:String ="";
+			[Bindable]
+			private var callingstatus:String;
+			//private var socket:XMLSocket = new XMLSocket();
+			//private var socket:Socket = new Socket();
+			//private var flag:Boolean = false;
+			[Bindable]
+			private var fileRef:FileReference;
+			
+			private function init():void{
+				
+				initURL();
+				initSendFile();
+				chatsessionservice.send();
+				msgBox.text ="";
+				this.title = from +" - "+ session.getAttribute("user");
+				timer.addEventListener(TimerEvent.TIMER,retrieveMsg);
+				timer.start();
+				/*
+				Security.loadPolicyFile("http://192.168.137.2:8000/Webco2/domainpolicy.xml");
+				socket.connect("192.168.137.2",4804);
+				socket.addEventListener(DataEvent.DATA,onData);
+				socket.addEventListener(Event.CONNECT, onConnect);
+				*/
+				//Security.allowDomain("192.168.137.2");
+				//socket.send("masuk\n");
+				
+				/*
+				socket.addEventListener(Event.CONNECT, onConnect);
+				socket.addEventListener(ProgressEvent.SOCKET_DATA,onData);
+				socket.addEventListener(IOErrorEvent.IO_ERROR,onError);
+				socket.addEventListener(Event.CLOSE,onClose);
+				*/
+			}
+
+			public function onData(e:DataEvent):void{
+				msgBox.htmlText += e.data;
+			}
+			private function onConnect(e:Event):void{
+				/*var str:String = "<?xml version=\"1.0\"?>"
+                                + "<cross-domain-policy>"
+                                + "<allow-access-from domain=\"192.168.137.2\" to-ports=\"4804\" />"
+                                + "<site-control permitted-cross-domain-policies=\"all\"/>"
+                                + "</cross-domain-policy>";
+                socket.writeUTFBytes(str);
+                socket.flush();
+                Alert.show("test","asdf",Alert.OK);*/
+                //socket.send(session.getAttribute("user")+"~has connected");
+			}/*
+			private function onData(e:ProgressEvent):void{
+				//Alert.show("test","Berhasil",Alert.OK);
+				var str:String="";
+				while(socket.bytesAvailable){
+					str += socket.readUTFBytes(socket.bytesAvailable);
+					socket.flush();
+				}
+				if(str.indexOf("xml")<-1){
+					socket.close();
+					socket.connect("192.168.137.2",4804);
+				}
+				var strtemp:String = msgBox.text;
+				strtemp += "\n"+str;
+				msgBox.text = strtemp;
+			}*/
+			private function onClose(e:Event):void{
+				//socket.connect("192.168.137.2",4804);
+			}
+			private function onError(e:IOErrorEvent):void{
+				Alert.show(e.toString(),"Failed",Alert.OK);
+				
+			}
+			private function msgSend(msg:String):void{
+				//socket.writeObject(1);
+				//socket.send(msg+"\n");
+				//Alert.show("njajal","Coba",Alert.OK);
+				/*socket.writeUTFBytes(msg+"\n");
+				socket.flush();
+				msgType.text = "";
+				socket.close();
+				socket.connect("192.168.137.2",4804);*/
+				//socket.send("\0");
+				/*
+				if(msgType.text.length>0){
+					socket.send(session.getAttribute("user")+"~"+msgBox.text);
+				}
+				*/
+				if(msgType.text!="" && msgType.text != null){
+					sendMsg = msgType.text;
+					msgBox.text += from +" : "+ sendMsg +"\n";
+					if(sessionchatid!=null && sendMsg != null){
+						sendmessageservice.send();
+					}
+				}
+				msgType.text = "";
+			}
+			private function onHasil(e:ResultEvent):void{
+				//var asdf:String = e.result.satu+":"+e.result.dua+":"+e.result.hasil;
+				//Alert.show(asdf,"Coba",Alert.OK);
+			}
+			private function onResultChatSession(e:ResultEvent):void{
+				sessionchatid = e.result.chatsessionid;
+				//Alert.show(e.result.chatsessionid,"trace",Alert.OK);
+			}
+			private function onFaultChatSession(e:FaultEvent):void{
+				Alert.show(e.fault.message,"Failure",Alert.OK);
+			}
+			private function removeWindow(e:Event):void{
+				//socket.close();
+				PopUpManager.removePopUp(this);
+			}
+			private function onReceiveMessage(e:ResultEvent):void{
+				
+				//Alert.show(e.result.books+"","test",Alert.OK);
+				if(e.result.books != null){
+					var arr:ArrayCollection = e.result.books.message;
+					//Alert.show(arr.length+"","test",Alert.OK);
+					for(var i:int=2;i<arr.length;i++){
+						newMsg = arr[i];
+						var tempstr:String = msgBox.text;
+						tempstr += from +" : "+ newMsg +"\n";
+						msgBox.text = tempstr;
+					}
+					newMsg = "";
+				}
+				
+				//Alert.show(e.result.satu+"-"+e.result.dua,"test",Alert.OK);
+			}
+			private function onFault(e:FaultEvent):void{
+				Alert.show(e.fault.message);
+			}
+			private function retrieveMsg(e:TimerEvent):void{
+				receivemessageservice.send();
+			}
+			private function videoCall(e:Event):void{
+				session.setAttribute("from",from);	
+				callingstatus = "2";
+				callingservice.send();
+			}
+			private function onCalling(e:ResultEvent):void{
+				//Alert.show(e.result.messageid);
+				session.setAttribute("messageid",e.result.messageid);
+				var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),OutgoingCall,false);
+				PopUpManager.centerPopUp(window);
+			}
+			private function initSendFile():void{
+				fileRef = new FileReference();
+				fileRef.addEventListener(Event.SELECT,fileSeledted);
+				//progressBar.visible = true;
+				//progressBar.setProgress(10,100);
+				//fileRef.addEventListener(,onUploadErr);
+			}
+			private function onUploadErr(e:HTTPStatusEvent):void{
+				Alert.show(e.status+"");
+			}
+			private function uploadProgress(e:ProgressEvent):void{
+				progressBar.visible = true;
+				progressBar.label = fileRef.name + " "+Math.round(((e.bytesLoaded/e.bytesTotal)*100))+"%";
+				progressBar.setProgress(e.bytesLoaded,e.bytesTotal);
+				
+			}
+			private function uploadComplete(e:Event):void{
+				progressBar.visible = false;
+				sendFileButt.visible = true;
+				uploadservice.send();
+				//Alert.show("Uploaded");
+			}
+			private function onUpload(e:ResultEvent):void{
+				
+			}
+			private function fileSeledted(e:Event):void{
+				sendFileButt.visible = false;
+				progressBar.label = fileRef.name;
+				fileRef.addEventListener(ProgressEvent.PROGRESS,uploadProgress);
+				fileRef.addEventListener(Event.COMPLETE,uploadComplete);
+				var url:URLRequest = new URLRequest("http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/doupload.php");
+				//Alert.show(url.url);
+				fileRef.upload(url);
+			}
+			private function browseFile():void{
+				fileRef.browse();
+			}
+			private function initURL():void{
+				chatsessionservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/chatsession.php";
+				sendmessageservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/sendmessage.php";
+				receivemessageservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/getmessage.php";
+				callingservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/calling.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="uploadservice" showBusyCursor="true" method="post" result="onUpload(event)">
+		<mx:request xmlns="">
+			<webcoid1>{session.getAttribute("user")}</webcoid1>
+			<webcoid2>{from}</webcoid2>
+			<messageid>{fileRef.name}</messageid>
+			<status>{callingstatus}</status>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="callingservice" showBusyCursor="true" method="post" result="onCalling(event)">
+		<mx:request xmlns="">
+			<webcoid1>{session.getAttribute("user")}</webcoid1>
+			<webcoid2>{from}</webcoid2>
+			<messageid></messageid>
+			<status>{callingstatus}</status>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="chatsessionservice" showBusyCursor="true" method="post" result="onResultChatSession(event)" fault="onFaultChatSession(event)">
+		<mx:request xmlns="">
+			<webcoid1>{session.getAttribute("user")}</webcoid1>
+			<webcoid2>{from}</webcoid2>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="sendmessageservice" method="post" result="onHasil(event)" fault="onFault(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+			<sessionchatid>{sessionchatid}</sessionchatid>
+			<message>{sendMsg}</message>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="receivemessageservice" method="post" result="onReceiveMessage(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+			<sessionchatid>{sessionchatid}</sessionchatid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:TextArea x="10" y="30" width="486" height="205" id="msgBox" editable="false">
+		
+	</mx:TextArea>
+	<mx:TextArea x="10" y="258" width="384" height="60" id="msgType"/>
+	<mx:Button x="402" y="257" label="Send" width="94" height="61" click="msgSend(msgType.text)"/>
+	<mx:Button x="13" y="5" label="Voice Call"/>
+	<mx:Button x="101" y="5" label="Video Call" click="videoCall(event)"/>
+	<mx:Button x="190" y="5" label="Send File" id="sendFileButt" click="browseFile()"/>
+	<mx:ProgressBar x="190" y="2" id="progressBar" mode="manual" visible="false"/>
+	
+</mx:TitleWindow>

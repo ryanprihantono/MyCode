@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="814" height="510" showCloseButton="true" close="removeWindow(event);" initialize="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ListEvent;
+			import mx.events.ItemClickEvent;
+			import mx.controls.Alert;
+			import mx.controls.VideoDisplay;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.ResultEvent;
+			import classes.Session;
+			import mx.core.UIComponent;
+			import mx.controls.Button;
+			import mx.managers.PopUpManager;
+			import components.Register;
+			import mx.core.IFlexDisplayObject;
+			
+			[Bindable]
+			private var session:Session = Session.getInstance();
+			[Bindable]
+			private var roomid:String;
+			[Bindable]
+			private var lastmsgid:int;
+			[Bindable]
+			private var msgSend:String;
+			private var roomname:String;
+			private var rm:String;
+			private var userList:ArrayCollection;
+			
+			private var timer:Timer = new Timer(1000);
+			
+			private var camera:Camera;
+			private var nc:NetConnection;
+			private var publisher:NetStream;
+			[Bindable]
+			private var displays:ArrayCollection = new ArrayCollection();
+			
+			//private var me:VideoDisplay = new VideoDisplay();
+			
+			private function init():void{
+				initURL();
+				roomid = session.getAttribute("roomid");
+				lastmsgid = 0;
+				
+				camera = Camera.getCamera();
+				if(camera){		
+					//me.attachCamera(camera);
+					//me.setActualSize(160,120);
+					//displays.push(me);
+					nc = new NetConnection();
+					nc.connect("rtmp://"+session.getAttribute("ip")+":1935/live/Webco2");
+					nc.addEventListener(NetStatusEvent.NET_STATUS,publishStream);
+					
+				}
+				else{
+					Alert.show("Cannot access camera");
+				}
+				container.dataProvider = displays;
+				initroomservice.send();
+				timer.addEventListener(TimerEvent.TIMER,refresher);
+				timer.start();
+			}
+			private function publishStream(e:NetStatusEvent):void{
+				if(nc.connected){
+					publisher = new NetStream(nc);
+					camera.setMode(320, 240, 30);
+					publisher.attachCamera(camera);
+					publisher.attachAudio(Microphone.getMicrophone());
+					publisher.publish(session.getAttribute("user"));
+					
+					//received.source = "rtmp://192.168.137.2/live/Webco2/"+session.getAttribute("from");
+				}
+				else
+					Alert.show("Error Connection");
+			}
+			private function refresher(e:TimerEvent):void{
+				getmsgchatroomservice.send();
+			}
+			private function removeWindow(e:Event):void{
+				
+				publisher.close();
+				PopUpManager.removePopUp(this);
+			}
+			private function retrieveMsg(e:ResultEvent):void{
+				//var items:ArrayCollection = e.result.books.items;
+				var msgidArr:ArrayCollection = e.result.books.messageid;
+				var msgArr:ArrayCollection = e.result.books.message;
+				var senderArr:ArrayCollection = e.result.books.sender;
+						
+				var usersArr:ArrayCollection = e.result.userlist.users;
+				if(msgidArr.length>2){
+					lastmsgid = msgidArr[msgArr.length-1];
+					for(var i:int=2;i<msgArr.length;i++){
+						//var arr:ArrayCollection = items[i];
+						var temp:String = msgBox.text;
+						temp += senderArr[i]+" : "+msgArr[i]+"\n";
+						msgBox.text = temp;
+					}
+				}
+				if(usersArr.length>2){
+					if(userList==null){
+						userList = new ArrayCollection();
+						for(var k:int=2;k<usersArr.length;k++){
+							userList.addItem(usersArr[k]);
+						}
+						users.dataProvider = userList;
+						
+						for(var o:int=0;o<userList.length;o++){
+							//var vid:VideoDisplay = new VideoDisplay();
+							//vid.setActualSize(160,120);
+							//vid.source = "rtmp://192.168.137.2/live/Webco2/"+userList[o];
+							displays.addItem({source:"rtmp://"+session.getAttribute("ip")+"/live/Webco2/"+userList[o],label:userList[o]});
+							big.source = "rtmp://"+session.getAttribute("ip")+"/live/Webco2/"+userList[o];
+							//big.attachCamera(camera);
+						}
+						
+						container.dataProvider = displays;
+					}
+					else{
+						var flag:Boolean=false;
+						for(var l:int=2;l<usersArr.length;l++){
+							if(userList.getItemIndex(usersArr[l])==-1){
+								if(usersArr[l]!="dump"){
+									userList.addItem(usersArr[l]);
+									flag = true;
+								}
+							}
+						}
+						for(var j:int=0;j<userList.length;j++){
+							if(usersArr.getItemIndex(userList[j])==-1){
+								userList.removeItemAt(j);
+								flag=true;
+							}
+						}
+						if(flag){
+							users.dataProvider = userList;
+							
+							displays.removeAll();
+							for(var q:int=0;q<userList.length;q++){
+								//var vid2:VideoDisplay = new VideoDisplay();
+								//vid2.setActualSize(160,120);
+								//vid2.source = "rtmp://192.168.137.2/live/Webco2/"+userList[q];
+								displays.addItem({source:"rtmp://"+session.getAttribute("ip")+"/live/Webco2/"+userList[q],label:userList[q]});
+							}
+						}
+					}
+				}
+				
+			}
+			private function onItemClick(e:Event):void{
+				big.source = e.currentTarget.selectedItem.source;
+				//Alert.show(e.currentTarget.selectedItem.source);
+			}
+			private function sendMsg():void{
+				msgSend = msgType.text;
+				if(msgType.text!=""){
+					sendmsgroomservice.send();
+				}
+				msgType.text = "";
+			}
+			private function onSent(e:ResultEvent):void{
+				
+			}
+			private function onInit(e:ResultEvent):void{
+				rm = e.result.rm;
+				roomname = e.result.roomname;
+				this.title = roomname+" - "+session.getAttribute("roomid");
+				if(rm==session.getAttribute("user")){
+					disbaned.label = "Disbaned Room";
+				}
+				else{
+					disbaned.label = "Leave Room";
+				}
+			}
+			private function onDisbaned():void{
+				if(rm==session.getAttribute("user")){
+					disbanedservice.send();
+				}
+				else{
+					leaveservice.send();
+				}
+			}
+			private function onLeft(e:ResultEvent):void{
+				publisher.attachAudio(null);
+				publisher.attachCamera(null);
+				publisher.close();
+				nc.close();
+				PopUpManager.removePopUp(this);
+			}
+			private function initURL():void{
+				leaveservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/leaveroom.php";
+				disbanedservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/disbanedroom.php";
+				initroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/initroom.php";
+				getmsgchatroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/getmsgchatroom.php";
+				sendmsgroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/sendmsgroom.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="leaveservice" method="post" result="onLeft(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+			<roomid>{roomid}</roomid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="disbanedservice" method="post" result="onLeft(event)">
+		<mx:request xmlns="">
+			<roomid>{roomid}</roomid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="initroomservice" method="post" result="onInit(event)">
+		<mx:request xmlns="">
+			<roomid>{roomid}</roomid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="getmsgchatroomservice" method="post" result="retrieveMsg(event)">
+		<mx:request xmlns="">
+			<roomid>{roomid}</roomid>
+			<lastmsgid>{lastmsgid}</lastmsgid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="sendmsgroomservice" method="post" result="onSent(event)">
+		<mx:request xmlns="">
+			<sender>{session.getAttribute("user")}</sender>
+			<roomid>{roomid}</roomid>
+			<message>{msgSend}</message>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:TextArea x="10" y="30" width="226" height="365" id="msgBox"/>
+
+	<mx:TextArea x="10" y="403" width="151" height="57" id="msgType"/>
+	<mx:Button x="169" y="403" label="Send" width="67" height="57" id="send" click="sendMsg()"/>
+	<mx:Button x="10" y="3" label="Disband Room" id="disbaned" click="onDisbaned()"/>
+	<mx:List x="660" y="0" width="134" height="470" id="users">
+		
+	</mx:List>
+	<mx:VideoDisplay x="294" y="10" width="320" height="240" id="big" live="true"/>
+	<mx:HorizontalList x="244" y="287" height="161" width="408" id="container" itemClick="onItemClick(event)" itemRenderer="components.Thumbnail" dataProvider="{displays}"></mx:HorizontalList>
+	
+</mx:TitleWindow>

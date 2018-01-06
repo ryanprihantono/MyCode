@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="250" height="150" title="Add Contact" showCloseButton="true" close="removeWindow(event);" initialize="initURL()">
+	<mx:Script>
+		<![CDATA[
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.managers.PopUpManager;
+			import mx.core.IFlexDisplayObject;
+			import mx.controls.Menu;
+			import mx.controls.Alert;
+            import mx.events.MenuEvent;
+            import classes.Session;
+            
+            [Bindable]
+            private var session:Session = Session.getInstance();
+			
+			private function removeWindow(e:Event):void{
+				PopUpManager.removePopUp(this);
+			}
+			private function addContact():void{
+				addcontactservice.send();
+			}
+			private function onResult(e:ResultEvent):void{
+				
+				if(e.result.message == "Webco id not found"){
+					Alert.show("Webco id not found","Failed",Alert.OK);
+				}
+				else if(e.result.message == "1"){
+					Alert.show("Waiting confirmation","Warning",Alert.OK);
+				}
+				else if(e.result.message == "2"){
+					Alert.show("Contact already added","Warning",Alert.OK);
+				}
+				else if(e.result.message == "3"){
+					Alert.show("Cannot add this Webco Id","Warning",Alert.OK);
+				}
+				else if(e.result.message == "Success"){
+					Alert.show("Contact successfully added","Success",Alert.OK);
+				}
+				else{
+					Alert.show(session.getAttribute("user"),"trace",Alert.OK);
+					Alert.show(e.result.message,"Failed",Alert.OK);
+				}
+			}
+			
+			private function onFault(e:FaultEvent):void{
+				//Alert.show(friendid.text,"trace",Alert.OK);
+				Alert.show(e.fault.message,"Connection Failed",Alert.OK);
+			}
+			private function initURL():void{
+				addcontactservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/addcontact.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="addcontactservice" showBusyCursor="true" method="post" result="onResult(event)" fault="onFault(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+			<friendid>{friendid.text}</friendid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:Text x="18.5" y="10" text="Enter Webco ID" width="98"/>
+	<mx:TextInput x="18.5" y="36" width="193" id="friendid"/>
+	<mx:Button x="18.5" y="73" label="Add Contact" click="addContact()"/>
+	<mx:Button x="148.5" y="73" label="Cancel" click="PopUpManager.removePopUp(this);"/>
+</mx:TitleWindow>

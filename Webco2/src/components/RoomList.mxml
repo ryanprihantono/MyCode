@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="470" height="300" showCloseButton="true" close="removeWindow(event);" initialize="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.collections.ArrayCollection;
+			import mx.events.ItemClickEvent;
+			import mx.rpc.events.ResultEvent;
+			import classes.Session;
+			import mx.core.UIComponent;
+			import mx.controls.Button;
+			import mx.managers.PopUpManager;
+			import components.Register;
+			import mx.core.IFlexDisplayObject;
+			
+			[Bindable]
+			private var session:Session = Session.getInstance();
+			[Bindable]
+			private var roomid:String;
+			
+			private function init():void{
+				initURL();
+				initroomlistservice.send();
+			}
+			private function onInit(e:ResultEvent):void{
+				if(e.result.books!=null){
+					roomlist.dataProvider = e.result.items;
+					//roomlist.removeChildAt(0);
+					//roomlist.removeChildAt(1);
+					//Alert.show("asdf");
+				}
+				if(e.result.cats!=null){
+					category.dataProvider = e.result.cats.category;
+				}
+			}
+			private function onItemClick(e:Event):void{
+				joinroom.enabled = true;
+				var arr:Array = roomlist.selectedItems;
+				roomid = arr[0];
+				typeroom.text = roomid;
+			}
+			private function onType():void{
+				if(typeroom.text!=""){
+					joinroom.enabled = true;
+				}
+				else
+					joinroom.enabled = false;
+			}
+			private function join():void{
+				if(roomid=="" || roomid==null)
+					roomid = typeroom.text;
+				joinroomservice.send();
+			}
+			private function onJoin(e:ResultEvent):void{
+				if(e.result.message!=null){
+					Alert.show(e.result.message);
+				}
+				else{
+					if(roomid!="" && roomid!=null){
+						session.setAttribute("roomid",roomid);
+						if(e.result.room=="chat"){
+							var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),Conference,false);
+							PopUpManager.centerPopUp(window);
+						}
+						else if(e.result.room=="multimedia"){
+							var window2:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),MultimediaConference,false);
+							PopUpManager.centerPopUp(window2);
+						}
+					}
+				}
+			}
+			private function removeWindow(e:Event):void{
+				PopUpManager.removePopUp(this);
+			}
+			private function createRoom():void{
+				session.setAttribute("room","chat");
+				var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),CreateConference,false);
+				PopUpManager.centerPopUp(window);
+			}
+			private function createMultimediaRoom():void{
+				session.setAttribute("room","multimedia");
+				var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),CreateConference,false);
+				PopUpManager.centerPopUp(window);
+			}
+			private function initURL():void{
+				initroomlistservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/initroomlist.php";
+				joinroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/joinroom.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="initroomlistservice" showBusyCursor="true" method="post" result="onInit(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="joinroomservice" showBusyCursor="true" method="post" result="onJoin(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+			<roomid>{roomid}</roomid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:Button x="10" y="10" label="Create Room" click="createRoom()"/>
+	<mx:Button x="142.5" y="10" label="Create Multimedia Room" click="createMultimediaRoom()"/>
+	<mx:Button x="355" y="10" label="Join Room" enabled="false" id="joinroom" click="join()"/>
+	<mx:DataGrid x="10" y="66" width="430" id="roomlist" itemClick="onItemClick(event)">
+		<mx:columns>
+			<mx:DataGridColumn headerText="Room ID" dataField="items.roomid"/>
+			<mx:DataGridColumn headerText="Room Name" dataField="items.roomname"/>
+			<mx:DataGridColumn headerText="Category" dataField="items.roomcategory"/>
+		</mx:columns>
+	</mx:DataGrid>
+	<mx:TextInput x="192" y="40" id="typeroom" keyDown="onType()"/>
+	<mx:Text x="10" y="42" text="Type Room Name or Room ID"/>
+	<mx:Text x="10" y="232" text="Search Room by"/>
+	<mx:ComboBox x="123" y="228" width="114" id="category">
+
+	</mx:ComboBox>
+	<mx:TextInput x="245" y="228" width="122"/>
+	<mx:Button x="375" y="228" label="Search"/>
+	
+</mx:TitleWindow>

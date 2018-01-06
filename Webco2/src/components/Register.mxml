@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="375" height="274" showCloseButton="true" close="removeWindow(event);" initialize="initURL()">
+	<mx:Script>
+		<![CDATA[
+			import classes.Session;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.controls.Button;
+			import mx.managers.PopUpManager;
+			import components.Register;
+			import mx.core.IFlexDisplayObject;
+			import mx.controls.Alert;
+			
+			private var session:Session = Session.getInstance();
+			
+			private function validate():void{
+				if(webcoid.text == "" || password.text=="" || copassword.text == "" || email.text==""){
+					Alert.show("All field must be field", 'Failure', mx.controls.Alert.OK);
+				}
+				else{
+					
+					registerservice.send();
+				}
+			}
+			private function onResult(e:ResultEvent):void{
+				if(e.result.status == true){
+					Alert.show("Register Success, Please Login","Registration Success",Alert.OK);
+					PopUpManager.removePopUp(this);
+				}
+				else{
+					Alert.show("Failed to Register","Registration Failed",Alert.OK);
+				}
+			}
+			
+			private function onFault(e:FaultEvent):void{
+				
+				Alert.show(e.fault.message,"Registration Failed",Alert.OK);
+			}
+			private function removeWindow(e:Event):void{
+				PopUpManager.removePopUp(this);
+			}
+			private function initURL():void{
+				registerservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/doregister.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="registerservice" showBusyCursor="true" method="post" result="onResult(event)" fault="onFault(event)">
+		<mx:request xmlns="">
+			<webcoid>{webcoid.text}</webcoid>
+			<password>{password.text}</password>
+			<email>{email.text}</email>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:Form>
+		<mx:FormItem label="Webco ID">
+			<mx:TextInput id="webcoid" width="100%"/>
+		</mx:FormItem> 
+		<mx:FormItem label="Email Address">
+			<mx:TextInput id="email" width="100%"/>
+		</mx:FormItem> 
+		<mx:FormItem label="Password">
+			<mx:TextInput id="password" displayAsPassword="true" width="100%"/>
+		</mx:FormItem> 
+		<mx:FormItem label="Confirm Password">
+			<mx:TextInput id="copassword" displayAsPassword="true" width="100%"/>
+		</mx:FormItem> 
+	</mx:Form>
+	<mx:CheckBox x="48" y="142"/>
+	<mx:Text x="70" y="140" text="I certify that I have read and agree to the Webco Terms of Service, Webco Privacy Policy and Communication Terms of Service" width="275"/>
+	<mx:Button x="212" y="202" label="Create My Account" click="validate()"/>
+	<mx:Button x="48" y="202" label="Cancel" click="PopUpManager.removePopUp(this);"/>
+	
+	
+</mx:TitleWindow>

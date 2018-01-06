@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="400" height="256" title="Upgrade to Premium">
+	<mx:TextInput x="207" y="17"/>
+	<mx:TextInput x="207" y="43"/>
+	<mx:TextInput x="207" y="69"/>
+	<mx:Text x="10" y="19" text="Bank"/>
+	<mx:Text x="10" y="45" text="Bank Account Name"/>
+	<mx:Text x="10" y="71" text="Account Number"/>
+	<mx:Text x="10" y="97" text="Item"/>
+	<mx:Text x="9" y="146" text="Total"/>
+	<mx:Text x="10" y="123" text="Currency"/>
+	<mx:Text x="207" y="146" text="50000"/>
+	<mx:Button x="207" y="177" label="Upgrade" enabled="true"/>
+	<mx:Button x="311" y="177" label="Cancel"/>
+	<mx:ComboBox x="207" y="95" width="114">
+		<mx:dataProvider>
+		         <mx:String>1 month</mx:String>
+		         <mx:String>瑞安</mx:String>
+		         <mx:String>Yenny</mx:String>
+		</mx:dataProvider>
+	</mx:ComboBox>
+	<mx:ComboBox x="207" y="121" width="146">
+		<mx:dataProvider>
+		         <mx:String>Indonesia - Rupiah</mx:String>
+		         <mx:String>瑞安</mx:String>
+		         <mx:String>Yenny</mx:String>
+		</mx:dataProvider>
+	</mx:ComboBox>
+	
+</mx:TitleWindow>

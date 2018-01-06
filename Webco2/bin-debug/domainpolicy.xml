@@ -1,0 +1,5 @@
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd"> 
+<cross-domain-policy> 
+<allow-access-from domain="192.168.137.2" secure="false" to-ports="4804"/>
+<site-control permitted-cross-domain-policies="all"/>
+</cross-domain-policy> 

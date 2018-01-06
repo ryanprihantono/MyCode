@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="208" height="154" initialize="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			import mx.core.IFlexDisplayObject;
+			import mx.managers.PopUpManager;
+			import mx.rpc.events.ResultEvent;
+			import classes.Session;
+		
+			[Bindable]
+			private var session:Session = Session.getInstance();
+			[Bindable]
+			private var callingstatus:String;
+			private var flag:Boolean=true;
+			
+			private function init():void{
+				initURL();
+				this.title = "Incoming Video Call";
+				txt.text = session.getAttribute("from")+" calling";
+			}
+			private function accepted():void{
+				callingstatus = "4";
+				callingservice.send();
+			}
+			private function rejected():void{
+				callingstatus = "5";
+				callingservice.send();
+			}
+			private function onStatus(e:ResultEvent):void{
+				if(e.result.status == "cancelled"){
+					PopUpManager.removePopUp(this);
+				}
+			}
+			private function onCalling(e:ResultEvent):void{
+				if(callingstatus == "4"){
+					if(flag){
+						//session.setAttribute("from",e.result.sender);
+						var window:IFlexDisplayObject = PopUpManager.createPopUp(UIComponent(this.parentApplication),VideoCall,false);
+						PopUpManager.centerPopUp(window);
+						PopUpManager.removePopUp(this);
+						flag = false;
+					}
+				}
+				else if(callingstatus == "5"){
+					PopUpManager.removePopUp(this);
+				}
+			}
+			private function initURL():void{
+				callingstatusservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/callingstatus.php";
+				callingservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/calling.php";
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:HTTPService id="callingstatusservice" showBusyCursor="true" method="post" result="onStatus(event)">
+		<mx:request xmlns="">
+			<webcoid1>{session.getAttribute("user")}</webcoid1>
+			<webcoid2>{session.getAttribute("from")}</webcoid2>
+			<messageid>{session.getAttribute("messageid")}</messageid>
+			<status>{callingstatus}</status>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="callingservice" showBusyCursor="true" method="post" result="onCalling(event)">
+		<mx:request xmlns="">
+			<webcoid1>{session.getAttribute("user")}</webcoid1>
+			<webcoid2>{session.getAttribute("from")}</webcoid2>
+			<messageid>{session.getAttribute("messageid")}</messageid>
+			<status>{callingstatus}</status>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:Label x="74.5" y="10" text="Label" fontSize="12" textAlign="center" id="txt"/>
+	<mx:Button x="113" y="82" label="Reject" click="rejected()"/>
+	<mx:Button x="10" y="82" label="Accept" click="accepted()"/>
+</mx:TitleWindow>

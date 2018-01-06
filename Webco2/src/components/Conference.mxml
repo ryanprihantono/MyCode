@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="530" height="370" close="removeWindow(event);" initialize="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.ResultEvent;
+			import classes.Session;
+			import mx.core.UIComponent;
+			import mx.controls.Button;
+			import mx.managers.PopUpManager;
+			import components.Register;
+			import mx.core.IFlexDisplayObject;
+			
+			[Bindable]
+			private var session:Session = Session.getInstance();
+			[Bindable]
+			private var roomid:String;
+			[Bindable]
+			private var lastmsgid:int;
+			[Bindable]
+			private var msgSend:String;
+			private var roomname:String;
+			private var rm:String;
+			private var userList:ArrayCollection;
+			
+			private var timer:Timer = new Timer(1000);
+			
+			private function init():void{
+				initURL();
+				roomid = session.getAttribute("roomid");
+				lastmsgid = 0;
+				//Alert.show(roomid);
+				
+				initroomservice.send();
+				timer.addEventListener(TimerEvent.TIMER,refresher);
+				timer.start();
+			}
+			private function refresher(e:TimerEvent):void{
+				getmsgchatroomservice.send();
+			}
+			private function removeWindow(e:Event):void{
+				PopUpManager.removePopUp(this);
+			}
+			private function retrieveMsg(e:ResultEvent):void{
+				//var items:ArrayCollection = e.result.books.items;
+				var msgidArr:ArrayCollection = e.result.books.messageid;
+				var msgArr:ArrayCollection = e.result.books.message;
+				var senderArr:ArrayCollection = e.result.books.sender;
+						
+				var usersArr:ArrayCollection = e.result.userlist.users;
+				if(msgidArr.length>2){
+					lastmsgid = msgidArr[msgArr.length-1];
+					for(var i:int=2;i<msgArr.length;i++){
+						//var arr:ArrayCollection = items[i];
+						var temp:String = msgBox.text;
+						temp += senderArr[i]+" : "+msgArr[i]+"\n";
+						msgBox.text = temp;
+					}
+				}
+				if(usersArr.length>2){
+					if(userList==null){
+						userList = new ArrayCollection();
+						for(var k:int=2;k<usersArr.length;k++){
+							userList.addItem(usersArr[k]);
+						}
+						users.dataProvider = userList;
+					}
+					else{
+						var flag:Boolean=false;
+						for(var l:int=2;l<usersArr.length;l++){
+							if(userList.getItemIndex(usersArr[l])==-1){
+								if(usersArr[l]!="dump"){
+									userList.addItem(usersArr[l]);
+									flag = true;
+								}
+							}
+						}
+						for(var j:int=0;j<userList.length;j++){
+							if(usersArr.getItemIndex(userList[j])==-1){
+								userList.removeItemAt(j);
+								flag=true;
+							}
+						}
+						if(flag){
+							users.dataProvider = userList;
+						}
+					}
+				}
+				
+			}
+			private function sendMsg():void{
+				msgSend = msgType.text;
+				if(msgType.text!=""){
+					sendmsgroomservice.send();
+				}
+				msgType.text = "";
+			}
+			private function onSent(e:ResultEvent):void{
+				//Alert.show(e.result.satu);
+			}
+			private function onInit(e:ResultEvent):void{
+				rm = e.result.rm;
+				roomname = e.result.roomname;
+				this.title = roomname+" - "+session.getAttribute("roomid");
+				if(rm==session.getAttribute("user")){
+					disbaned.label = "Disbaned Room";
+				}
+				else{
+					disbaned.label = "Leave Room";
+				}
+			}
+			private function onDisbaned():void{
+				if(rm==session.getAttribute("user")){
+					disbanedservice.send();
+				}
+				else{
+					leaveservice.send();
+				}
+			}
+			private function onLeft(e:ResultEvent):void{
+				PopUpManager.removePopUp(this);
+			}
+			private function initURL():void{
+				leaveservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/leaveroom.php";
+				disbanedservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/disbanedroom.php";
+				initroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/initroom.php";
+				getmsgchatroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/getmsgchatroom.php";
+				sendmsgroomservice.url = "http://"+session.getAttribute("hostaddress")+"/Webco2/phpcode/sendmsgroom.php";
+			}
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="leaveservice" method="post" result="onLeft(event)">
+		<mx:request xmlns="">
+			<webcoid>{session.getAttribute("user")}</webcoid>
+			<roomid>{roomid}</roomid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="disbanedservice" method="post" result="onLeft(event)">
+		<mx:request xmlns="">
+			<roomid>{roomid}</roomid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="initroomservice" method="post" result="onInit(event)">
+		<mx:request xmlns="">
+			<roomid>{roomid}</roomid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="getmsgchatroomservice" method="post" result="retrieveMsg(event)">
+		<mx:request xmlns="">
+			<roomid>{roomid}</roomid>
+			<lastmsgid>{lastmsgid}</lastmsgid>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:HTTPService id="sendmsgroomservice" method="post" result="onSent(event)">
+		<mx:request xmlns="">
+			<sender>{session.getAttribute("user")}</sender>
+			<roomid>{roomid}</roomid>
+			<message>{msgSend}</message>
+		</mx:request>
+	</mx:HTTPService>
+	<mx:TextArea x="10" y="30" width="358" height="205" id="msgBox"/>
+
+	<mx:TextArea x="10" y="258" width="256" height="60" id="msgType"/>
+	<mx:Button x="274" y="257" label="Send" width="94" height="61" id="send" click="sendMsg()"/>
+	<mx:Button x="10" y="3" label="Disband Room" id="disbaned" click="onDisbaned()"/>
+	<mx:VRule x="376" y="0" height="328"/>
+	<mx:List x="386" y="10" width="113" height="308" id="users">
+		
+	</mx:List>
+	
+</mx:TitleWindow>
