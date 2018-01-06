@@ -1,0 +1,6 @@
+D:\Work II\SocketServer\SocketServer\obj\Debug\ResolveAssemblyReference.cache
+D:\Work II\SocketServer\SocketServer\obj\Debug\SocketServer.ServerForm.resources
+D:\Work II\SocketServer\SocketServer\obj\Debug\SocketServer.Properties.Resources.resources
+D:\Work II\SocketServer\SocketServer\obj\Debug\SocketServer.csproj.GenerateResource.Cache
+D:\Work II\SocketServer\SocketServer\obj\Debug\AppServer.ServerForm.resources
+D:\Work II\SocketServer\SocketServer\obj\Debug\AppServer.Properties.Resources.resources

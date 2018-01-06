@@ -1,0 +1,45 @@
+D:\Work II\SocketServer\SocketServer\obj\Debug\ResolveAssemblyReference.cache
+D:\Work II\SocketServer\SocketServer\obj\Debug\AppServer.ServerForm.resources
+D:\Work II\SocketServer\SocketServer\obj\Debug\AppServer.Properties.Resources.resources
+D:\Work II\SocketServer\SocketServer\obj\Debug\AppServer.csproj.GenerateResource.Cache
+D:\Work II\SocketServer\SocketServer\bin\Debug\SocketServer.exe
+D:\Work II\SocketServer\SocketServer\bin\Debug\SocketServer.pdb
+D:\Work II\SocketServer\SocketServer\obj\Debug\SocketServer.exe
+D:\Work II\SocketServer\SocketServer\obj\Debug\SocketServer.pdb
+D:\Work II\SocketServer\SocketServer\obj\Debug\AppServer.ClientForm.resources
+E:\Data\Hyperion Shared\SocketServer\SocketServer\obj\Debug\SocketServer.exe
+E:\Data\Hyperion Shared\SocketServer\SocketServer\obj\Debug\SocketServer.pdb
+E:\Data\Hyperion Shared\SocketServer\SocketServer\bin\Debug\SocketServer.exe
+E:\Data\Hyperion Shared\SocketServer\SocketServer\bin\Debug\SocketServer.pdb
+E:\Data\Hyperion Shared\SocketServer\SocketServer\obj\Debug\ResolveAssemblyReference.cache
+E:\Data\Hyperion Shared\SocketServer\SocketServer\obj\Debug\AppServer.ClientForm.resources
+E:\Data\Hyperion Shared\SocketServer\SocketServer\obj\Debug\AppServer.Properties.Resources.resources
+E:\Data\Hyperion Shared\SocketServer\SocketServer\obj\Debug\AppServer.ServerForm.resources
+E:\Data\Hyperion Shared\SocketServer\SocketServer\obj\Debug\AppServer.csproj.GenerateResource.Cache
+D:\SocketServer\SocketServer\obj\Debug\SocketServer.exe
+D:\SocketServer\SocketServer\obj\Debug\SocketServer.pdb
+D:\SocketServer\SocketServer\bin\Debug\SocketServer.exe
+D:\SocketServer\SocketServer\bin\Debug\SocketServer.pdb
+D:\SocketServer\SocketServer\obj\Debug\ResolveAssemblyReference.cache
+D:\SocketServer\SocketServer\obj\Debug\AppServer.ClientForm.resources
+D:\SocketServer\SocketServer\obj\Debug\AppServer.Properties.Resources.resources
+D:\SocketServer\SocketServer\obj\Debug\AppServer.ServerForm.resources
+D:\SocketServer\SocketServer\obj\Debug\AppServer.csproj.GenerateResource.Cache
+E:\Data\Hyperion Shared\AppServer\AppServer\obj\Debug\SocketServer.exe
+E:\Data\Hyperion Shared\AppServer\AppServer\obj\Debug\SocketServer.pdb
+E:\Data\Hyperion Shared\AppServer\AppServer\bin\Debug\SocketServer.exe
+E:\Data\Hyperion Shared\AppServer\AppServer\bin\Debug\SocketServer.pdb
+E:\Data\Hyperion Shared\AppServer\AppServer\obj\Debug\ResolveAssemblyReference.cache
+E:\Data\Hyperion Shared\AppServer\AppServer\obj\Debug\AppServer.ClientForm.resources
+E:\Data\Hyperion Shared\AppServer\AppServer\obj\Debug\AppServer.Properties.Resources.resources
+E:\Data\Hyperion Shared\AppServer\AppServer\obj\Debug\AppServer.ServerForm.resources
+E:\Data\Hyperion Shared\AppServer\AppServer\obj\Debug\AppServer.csproj.GenerateResource.Cache
+D:\Work II\AppServer\AppServer\obj\Debug\SocketServer.exe
+D:\Work II\AppServer\AppServer\obj\Debug\SocketServer.pdb
+D:\Work II\AppServer\AppServer\bin\Debug\SocketServer.exe
+D:\Work II\AppServer\AppServer\bin\Debug\SocketServer.pdb
+D:\Work II\AppServer\AppServer\obj\Debug\ResolveAssemblyReference.cache
+D:\Work II\AppServer\AppServer\obj\Debug\AppServer.ClientForm.resources
+D:\Work II\AppServer\AppServer\obj\Debug\AppServer.Properties.Resources.resources
+D:\Work II\AppServer\AppServer\obj\Debug\AppServer.ServerForm.resources
+D:\Work II\AppServer\AppServer\obj\Debug\AppServer.csproj.GenerateResource.Cache
