@@ -1,0 +1,42 @@
+#gallery{
+	width: 700px;
+	padding: 20px;
+	min-height: 200px;
+	text-align: center;
+}
+
+#gallery>ul{
+	margin: 0;
+	padding: 0;
+}
+
+#gallery>ul>li{
+	margin-right: 20px;
+	margin-bottom: 20px;
+	float:left;
+	display:inline;
+}
+
+.album{
+	width: 210px;
+	height: 150px;
+	overflow: hidden;
+	border: #CDCDCD 1px solid;
+}
+
+.albumname{
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#gallery>ul>li>a{
+}
+
+#gallery ul li a:hover{
+	background:url(../images/background/bg_main.gif) 0 -42px repeat-x;
+}
+
+#gallery ul li a:active{
+	background:url(../images/background/bg_main.gif) 0 -82px repeat-x;
+}

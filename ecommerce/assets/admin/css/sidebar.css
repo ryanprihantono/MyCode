@@ -1,0 +1,76 @@
+.sidebar {
+  list-style:none;
+  margin:18px 5px 0 5px;
+  padding:0;
+}
+
+.sidebar h1{
+  color: #FFF;
+  margin:0;
+  padding:10px 0 0 20px;
+  width:auto;
+  height:30px;
+  font-size:18px;
+  background:url(../images/background/bg_main.gif) 0 -120px repeat-x;
+  border-right: #06F solid 1px;
+  border-left: #06F solid 1px;
+  border-top: #06F solid 1px;
+}
+
+.sidebar ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  border-right: #CDCDCD solid 1px;
+  border-left: #CDCDCD solid 1px;
+  border-bottom: #CDCDCD solid 1px;
+}
+
+.sidebar li {
+  width:auto;
+  height:38px; 
+}
+
+.sidebar li a {
+  display:block;
+  font-weight:bold;
+  font-size: 14px;
+  text-decoration:none;
+  color:#292929;
+  padding:12px 10px 12px 20px;
+  background:url(../images/background/bg_main.gif) 0 -3px repeat-x;
+ }
+
+.sidebar li a:hover {
+  color:#000;
+  background:url(../images/background/bg_main.gif) 0 -83px repeat-x;}
+
+.sidebar li .sidebar-content {
+	display: none;
+}
+
+.sidebar li li {
+  background:#7B0008 ;
+  border-right: none;
+  margin:0;
+  float:none;
+  width:auto;
+  color: #fff;
+}
+
+.sidebar li li a {
+  color:#C9C9C9;
+  font-weight:normal;
+  height: 15px;
+  line-height: 15px;
+  margin-left: 10px;
+}
+
+.sidebar li li.active, .sidebar li li:hover {
+  background:#7B0008;
+  color:#FFF;
+}
+
+.sidebar li li.active a, .sidebar li li:hover a {
+  color:#FFF;
+}

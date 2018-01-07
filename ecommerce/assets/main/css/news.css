@@ -1,0 +1,36 @@
+#news {
+	width: 980px;
+	height: 70px;
+	overflow: hidden;
+	text-align: center;
+	margin: auto;
+	padding: 5px;
+}
+
+#news>h1 {
+	color: #202020;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	height:20px;
+	border-bottom: 3px solid #1624B8;
+}
+
+.our-news li {
+	width: 970px;
+	height: 20px;
+	padding: 5px;
+	margin: 5px 0 5px 0;
+}
+
+.our-news a{
+	text-decoration: none;
+	color: #000;
+} 
+
+.our-news span{
+	text-decoration: none;
+	font-weight: bold;
+	margin-right: 10px;
+} 

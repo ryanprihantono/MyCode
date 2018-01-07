@@ -1,0 +1,120 @@
+.clear{
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+
+.clear5{
+	clear: both;
+	margin: 0;
+	padding: 5px 0 0 0;
+}
+
+.clear10{
+	clear: both;
+	margin: 0;
+	padding: 10px 0 0 0;
+}
+
+.round3{
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.round3-top{
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	-khtml-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+}
+
+.round3-bottom{
+	-moz-border-radius: 0 0 3px 3px;
+	-webkit-border-radius: 0 0 3px 3px;
+	-khtml-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+}
+
+.round3-left{
+	-moz-border-radius: 3px 0 0 3px;
+	-webkit-border-radius: 3px 0 0 3px;
+	-khtml-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;
+}
+
+.round3-right{
+	-moz-border-radius: 0 3px 3px 0;
+	-webkit-border-radius: 0 3px 3px 0;
+	-khtml-border-radius: 0 3px 3px 0;
+	border-radius: 0 3px 3px 0;
+}
+
+.round5{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.round5-top{
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	-khtml-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+
+.round5-bottom{
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	-khtml-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+}
+
+.round5-left{
+	-moz-border-radius: 5px 0 0 5px;
+	-webkit-border-radius: 5px 0 0 5px;
+	-khtml-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
+}
+
+.round5-right{
+	-moz-border-radius: 0 5px 5px 0;
+	-webkit-border-radius: 0 5px 5px 0;
+	-khtml-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+}
+
+.gradient{
+	background:url(../images/background/bg_horizontal_spi_2.png) 0 0 repeat-y;
+}
+
+.gradient2{
+	background:url(../images/background/bg_horizontal_spi_2.png) -700px 0 repeat-y;
+}
+
+.gradient3{
+	background:url(../images/background/bg_horizontal_spi_2.png) 0 0 repeat-y;
+}
+
+.margin-top-20{
+	margin-top: 20px;
+}
+
+.nodata{
+	text-align: center;
+	color: #F00;
+}
+
+.center{
+	text-align: center;
+}
+
+.label{
+	font-weight: bold;
+}
+
+.qty{
+	width: 40px;
+}

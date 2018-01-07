@@ -1,0 +1,81 @@
+@import url("reset.css");
+body{
+	background:#FFF;
+	font-family:calibri;
+	color:#black;
+}
+
+#jj-logo{
+	background:#FFF;
+	position:relative;
+	width:100%;
+	height:105px;
+}
+
+#logo1{
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+form{
+	margin:50px auto;
+	position:relative;
+	width:380px;
+	height:240px;
+	border:1px solid black;
+	background:#FFF;
+}
+
+h1{
+	background:url(../images/bg_jj.png) 0 -0px repeat-x;
+	height:20px;
+	padding:10px 0px 10px 15px;
+	border-bottom:2px #black solid;
+	font-size:18px;
+	font-weight:bold;
+	color:#E2E5E9;
+}
+
+form div{
+	height:15px;
+	width:330px;
+	margin:15px 10px;
+	padding:5px 10px;
+}
+
+form div label{
+	float:left;
+	width:100px;
+	padding:5px 10px;
+	height:16px;
+	font-weight:bold;
+	font-size:14px;
+}
+
+form div .jj-input{
+	float:left;
+	width:202px;
+	height:20px;
+	padding:3px;
+	border:1px black solid;
+}
+
+form div .jj-input:focus{
+	background:#CC9;
+}
+
+form div .button{
+	width:100px;
+	height:30px;
+	padding:5px 15px;
+	color:#FFF;
+	background:url(../images/bg_jj.png) 0 -7px repeat-x;
+	cursor:pointer;
+	float: right;
+	border:1px #292929 solid;
+}
+
+form div .button:hover{
+	background:url(../images/bg_jj.png) 0 -40px repeat-x;
+	color:#C9C9C9;
+}

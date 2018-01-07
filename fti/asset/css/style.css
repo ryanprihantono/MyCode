@@ -1,0 +1,284 @@
+body{
+    background:#FFF;
+    margin: 0;
+    padding: 0;
+	font-family:calibri;
+	color:#000;
+}
+
+/* Layout Utama */
+
+#jj-layout{
+	width:100%;
+	height:100%;
+}
+
+/* Logo */
+
+#jj-logo{
+	margin:5px 5px 0 5px;
+	padding: 5px 10px 0 10px;
+	background:#FFF;
+	float:left;
+}
+
+/* Navigasi */
+
+#jj-navigation{
+	margin:0;
+	padding:0;
+}
+
+/* Main Menu */
+
+#jj-mainmenu{
+	margin:0;
+	padding:0;
+	display:block;
+	height:38px;
+	background:url(../images/bg_jj.png) 0 0 repeat-x;
+	border-bottom:#292929 1px solid;
+}
+
+#jj-mainmenu ul{
+	margin:0; 
+	padding:0;
+}
+
+#jj-mainmenu ul li{
+	float:left;
+	display:inline;
+	padding:0;
+	height:38px;
+}
+
+#jj-mainmenu ul li a{
+	display:block;
+	padding:10px 10px;
+	height:18px;
+	width:98px;
+	background:url(../images/bg_jj.png) 0 -0px repeat-x;
+	text-align:center;
+	text-decoration:none;
+	color:#C9C9C9;
+	font-size:19px;
+}
+
+#jj-mainmenu ul li a:hover{
+	background:url(../images/bg_jj.png) 0 -40px repeat-x;
+	color:#FFF;
+}
+
+#jj-mainmenu ul li a.active{
+	background:url(../images/bg_jj.png) 0 -80px repeat-x;
+	border-right: 1px solid #000;
+	border-left: 1px solid #000;
+	border-bottom: 1px solid #000;
+	color:#FFF;
+	height: 15px;
+}
+
+/* Info */
+
+#jj-info{
+	padding:0;
+	margin:0;
+	background:url(../images/bg_jj.png) 0 -270px repeat-x;
+	color:#FFF;
+	padding:5px 10px;
+	text-align:right;
+	font-size:12px;
+	float:right;
+	width:100%;
+}
+
+#jj-info a{
+	text-decoration:none;
+	color:#F60;
+}
+
+#jj-info a.span{
+	color:#4B4B4B;
+}
+
+#jj-info a:hover.span{
+	color:#1E1E1E;
+}
+
+#jj-info ul{
+	position:relative;
+	float:right;
+	height:15px;
+	margin:0;
+	padding:0;
+}
+
+#jj-info ul li{
+	display:block;
+	float:left;
+	list-style:none;
+	margin-top:2px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	padding:0 10px 0 10px;
+	border-right:#000 solid 1px;
+}
+
+#jj-info ul li a{
+	text-decoration:none;
+	color:#7B0008;	
+}
+
+#jj-info ul li a.last{
+	border-right:none;
+}
+
+#jj-info ul li a:hover{
+	color:#4B4B4B;	
+}
+
+/* Left Bar */
+
+#jj-leftbar{
+	float:left;
+	width:19%;
+	min-height:650px;
+	height:100%;
+}
+
+#title-leftbar{
+	background:url(../images/bg_jj.png) 0 -40px repeat-x;
+	border: 1px solid #000;
+	height:30px;
+	padding: 10px 0 10px 0;
+}
+
+#title-leftbar p{
+	margin: 8px 5px 5px;
+	font-weight: bold;
+	color: #C9C9C9; 
+}
+
+/* Cointainer */
+
+#jj-container{
+	width:90%;
+	min-height: 300px;
+	background: #FFF;
+	margin:auto;
+}
+
+#jj-container #jj-title{
+	margin:10px 10px 10px 30px;
+	width: 50%;
+	height:26px;
+	font-size:21px;
+	padding:7px 10px 7px 0;
+	color:#000;
+}
+
+#jj-container #jj-content{
+	margin:0 10px 0 10px;
+	background: #C9C9C9;
+	border-top: solid 4px #666;
+	display:block;
+	padding:10px;
+	color:#292929;
+	text-align:justify;
+}
+
+/* Container 2*/
+
+#jj-container2{
+	width:80%;
+	min-height: 300px;
+	background: #FFF;
+	margin:auto;
+	float:left;
+}
+
+#jj-container2 #jj-title{
+	margin:10px 10px 10px 30px;
+	width: 50%;
+	height:26px;
+	font-size:21px;
+	padding:7px 10px 7px 0;
+	color:#000;
+}
+
+#jj-container2 #jj-content{
+	margin:0 10px 0 10px;
+	background: #C9C9C9;
+	border-top: solid 4px #666;
+	display:block;
+	padding:10px;
+	color:#292929;
+	text-align:justify;
+}
+
+/* List content */
+
+#jj-content list{
+	overflow:hidden;
+	height:230px;
+	padding:10px;
+}
+
+#list ul{
+	margin:0;
+	padding:0;
+}
+
+#list ul li{
+	display:inline-block;
+}
+
+#list ul li a.listMenu{
+	display:block;
+	width:150px;
+	border:1px solid #929292;
+	margin:5px;
+	padding:5px;
+	text-align:center;
+	text-decoration:none;
+	color:#000;
+	font-size:12px;
+}
+
+#list ul li a.listMenu:hover{
+	background:#929292;
+	color:#F9F9F9;
+	font-size:12px;
+}
+
+/* Timepicker Bugs */
+
+#ui-datepicker-div{
+	display: none;
+}
+
+/* Report */
+
+table.report {
+	border: 1px solid #000;
+	margin: auto;
+	text-align: right;
+}
+
+table.report td {
+	border: 1px solid #000;
+	padding: 10px;
+}
+
+table.report th {
+	border: 1px solid #000;
+	padding: 3px;
+}
+
+/* Footer */
+
+#jj-footer {
+	margin: 5px;
+	text-align: center;
+}

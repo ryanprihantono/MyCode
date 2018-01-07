@@ -1,0 +1,17 @@
+#breadcrumb {
+	width: 720px;
+	height: 20px;
+	padding: 10px;
+}
+
+#breadcrumb a {
+	color: #666;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#breadcrumb a:hover {
+	text-decoration: underline;
+	
+}

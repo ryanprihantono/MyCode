@@ -1,0 +1,225 @@
+body{
+    background:#FFF;
+    margin: 0;
+    padding: 0;
+	font-family:calibri;
+	color:#000;
+}
+
+/* Layout Utama */
+
+#admin-layout{
+	width:100%;
+	height:100%;
+}
+
+/* Logo */
+
+#admin-logo{
+	margin:5px 5px 0 5px;
+	padding: 5px 10px 5px 10px;
+	float:left;
+}
+
+/* Info */
+
+#admin-info{
+	padding:0;
+	margin:0;
+	color:#666;
+	padding:5px 10px;
+	text-align:right;
+	font-size:12px;
+	float:right;
+	width:100%;
+}
+
+#admin-info a{
+	text-decoration:none;
+}
+
+#admin-info a.span{
+}
+
+#admin-info a:hover.span{
+}
+
+#admin-info ul{
+	position:relative;
+	float:right;
+	height:15px;
+	margin:0;
+	padding:0;
+}
+
+#admin-info ul li{
+	display:block;
+	float:left;
+	list-style:none;
+	margin-top:2px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	padding:0 10px 0 10px;
+	border-right:#000 solid 1px;
+}
+
+#admin-info ul li a, #admin-info ul li a:visited {
+	text-decoration:none;
+	color:#888;
+}
+
+#admin-info ul li a.last{
+	border-right:none;
+	color:#666;
+}
+
+#admin-info ul li a:hover{
+	color:#666;
+}
+
+
+/* Navigasi */
+
+#admin-navigation{
+	margin:0;
+	padding:0;
+}
+
+/* Main Menu */
+
+#admin-mainmenu{
+	width: 100%;
+	height: 38px;
+	background:url(../images/background/bg_main.gif) 0 -2px repeat-x;
+	border: 1px solid #CDCDCD;
+}
+
+#admin-mainmenu ul{
+	margin:0; 
+	padding:0;
+}
+
+#admin-mainmenu ul li{
+	float:left;
+	display:inline;
+	border-right:1px #CDCDCD solid;
+}
+
+#admin-mainmenu ul li a{
+	display:block;
+	padding:12px 15px 12px 15px;
+	text-align:center;
+	text-decoration:none;
+	color:#666;
+	font-size:14px;
+	font-weight: bold;
+}
+
+#admin-mainmenu ul li a#icon-admin{
+	padding:7px 15px 7px 15px;
+}
+
+#admin-mainmenu ul li a:hover{
+	background:url(../images/background/bg_main.gif) 0 -40px repeat-x;
+}
+
+#admin-mainmenu ul li a:active{
+	color: #1624B8;
+	background:url(../images/background/bg_main.gif) 0 -80px repeat-x;
+}
+
+#admin-mainmenu ul li a.active{
+	color:#FFF;
+	height: 15px;
+}
+
+/* Left Bar */
+
+#admin-sidebar{
+	float:left;
+	width:19%;
+	min-height:20px;
+}
+
+#title-sidebar{
+	background:url(../images/background/bg_2.png) 0 -10px repeat-x;
+	height:30px;
+	padding: 5px 0 10px 0;
+}
+
+#title-sidebar p{
+	margin: 8px 5px 5px 15px;
+	font-weight: bold;
+	color: #000; 
+}
+
+/* Container */
+
+#admin-container{
+	width:80%;
+	min-height: 300px;
+	background: #FFF;
+	margin:auto;
+	float:left;
+}
+
+#admin-container #admin-title{
+	margin:0 10px 0 10px;
+	font-size:21px;
+	padding:20px 10px 7px 20px;
+	color:#000;
+	height: 36px;
+}
+
+#admin-container #admin-content{
+	margin:0 10px 0 10px;
+	min-height: 400px;
+	display:block;
+	padding:10px;
+	color:#292929;
+	text-align:justify;
+}
+
+/* List Content */
+
+#admin-content list{
+	overflow:hidden;
+	height:230px;
+	padding:10px;
+}
+
+#list ul{
+	margin:0;
+	padding:0;
+}
+
+#list ul li{
+	display:inline-block;
+}
+
+#list ul li a.listMenu{
+	display:block;
+	width:150px;
+	border:1px solid #929292;
+	margin:5px;
+	padding:5px;
+	text-align:center;
+	text-decoration:none;
+	color:#000;
+	font-size:12px;
+}
+
+#list ul li a.listMenu:hover{
+	background:#929292;
+	color:#F9F9F9;
+	font-size:12px;
+}
+
+/* Footer */
+
+#admin-footer {
+	margin-top: 15px;
+	font-size: 12px;
+	text-align: center;
+}

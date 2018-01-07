@@ -1,0 +1,60 @@
+/* Big Cart */
+
+table.cart{
+	width: 650px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+table.cart tr td{
+	border: 1px solid #666;
+	padding: 10px;
+}
+
+table.cart tr td.head{
+	font-weight: bold;
+	text-align: center;
+}
+
+table.cart tr td input.checkout{
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Small Cart */
+
+table.smallcart{
+	font-size: 12px;
+	width: 190px;
+	margin: auto;
+	margin-top: 5px;
+}
+
+table.smallcart tr td{
+	border: 1px solid #666;
+	padding: 2px;
+}
+
+table.smallcart tr td.head{
+	font-weight: bold;
+	text-align: center;
+}
+
+table.smallcart tr td input{
+	font-weight: bold;
+	text-align: center;
+}
+
+a.gotocart {
+	background: #E4E4E4;
+	padding: 2px;
+	color: #000;
+	text-decoration: none;
+}
+
+a.gotocart:hover {
+	background: #CDCDCD;
+	padding: 2px;
+	color: #000;
+	text-decoration: none;
+}

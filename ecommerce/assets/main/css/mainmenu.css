@@ -1,0 +1,39 @@
+#main-menu{
+	height: 38px;
+	margin: auto;
+}
+
+#main-menu ul{
+	margin: 0;
+	padding: 0;
+}
+
+#main-menu ul li{
+	float:left;
+	display:inline;
+}
+
+#main-menu ul li a{
+	display:block;
+	padding:12px 15px 12px 15px;
+	margin-right: 10px;
+	text-align:center;
+	text-decoration:none;
+	color:#FFF;
+	font-size:14px;
+	font-weight: bold;
+	background:url(../images/background/bg_mainmenu.png) 0 -2px repeat-x;
+	border: 1px solid #630;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#main-menu ul li a:hover{
+	background:url(../images/background/bg_mainmenu.png) 0 -42px repeat-x;
+}
+
+#main-menu ul li a:active{
+	background:url(../images/background/bg_mainmenu.png) 0 -42px repeat-x;
+}
