@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEET_0910.CSharp.Plugins", "NEET_0910.CSharp.Plugins.csproj", "{0DC0AA00-2443-22C6-DDF2-9A3BF2F3AFB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEET_0910.CSharp", "NEET_0910.CSharp.csproj", "{565D06B3-141B-8EFF-2E35-1FBE98B33F12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DC0AA00-2443-22C6-DDF2-9A3BF2F3AFB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC0AA00-2443-22C6-DDF2-9A3BF2F3AFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC0AA00-2443-22C6-DDF2-9A3BF2F3AFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC0AA00-2443-22C6-DDF2-9A3BF2F3AFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{565D06B3-141B-8EFF-2E35-1FBE98B33F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{565D06B3-141B-8EFF-2E35-1FBE98B33F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{565D06B3-141B-8EFF-2E35-1FBE98B33F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{565D06B3-141B-8EFF-2E35-1FBE98B33F12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

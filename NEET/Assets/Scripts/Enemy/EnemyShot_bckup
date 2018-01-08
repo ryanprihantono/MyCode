@@ -1,0 +1,120 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnemyShot : MonoBehaviour
+{
+
+    public float bulletFowardForce;
+    public GameObject bulletEmitter;
+    public GameObject bullet;
+    public bool isBulletOut = false;
+    public GameObject unit;
+    public float shotInterval = 0.5f;
+    public bool isShooting = false;
+    public float damage;
+
+    //references
+    private EnemyMovement enemyScript;
+    private EnemyMovement enemyMovement;
+    private Health unitHealth;
+    private Health enemyHealth;
+    private Animator enemyAnim;
+    private Animator unitAnim;
+    private HashIDs hash;
+
+    private float shotTimer = 0f;
+
+    //shot direction towards target
+    private Vector3 shotDir;
+
+
+
+
+
+    void Start()
+    {
+        enemyMovement = gameObject.transform.parent.gameObject.GetComponent<EnemyMovement>();
+        enemyHealth = gameObject.transform.parent.gameObject.GetComponent<Health>();
+
+        enemyAnim = gameObject.transform.parent.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Animator>();
+
+
+        hash = GameObject.FindGameObjectWithTag(Tags.GameController).GetComponent<HashIDs>();
+
+    }
+
+    void Update()
+    {
+        if (isShooting)
+        {
+            if (unit != null)
+            {
+                ShotEffect();
+            }
+            else
+            {
+                isShooting = false;
+                isBulletOut = false;
+            }
+        }
+    }
+
+    void ShotEffect()
+    {
+        shotTimer += Time.deltaTime;
+
+        if (shotTimer >= shotInterval)
+        {
+            shotTimer = 0;
+            isBulletOut = false;
+        }
+        if (!isBulletOut && enemyHealth.health > 0)
+        {
+            //unit take damage
+            unitHealth.TakeDamage(damage);
+
+            if (unitHealth.health > 0)
+            {
+                //instantiate bullet
+                GameObject temporaryBullet = (GameObject)Instantiate(bullet, bulletEmitter.transform.position, bulletEmitter.transform.rotation);
+                shotDir = unit.transform.position - temporaryBullet.transform.position + Vector3.up * 0.5f;
+                gameObject.transform.LookAt(unit.transform);
+                Rigidbody tempRidgidbody = temporaryBullet.GetComponent<Rigidbody>();
+                tempRidgidbody.AddForce(shotDir * bulletFowardForce);
+                Destroy(temporaryBullet, 0.5f);
+                isBulletOut = true;
+            }
+            else
+            {
+                unitAnim.SetBool(hash.dead, true);
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        //Collider col = gameObject.GetComponent<SphereCollider>();
+        //Debug.Log(other.tag);
+        if (other.tag == Tags.UnitBody && !isShooting && enemyMovement != null)
+        {
+            //Debug.Log(other.name);
+            unit = other.gameObject.transform.parent.gameObject;
+            enemyMovement.speed = 0f;
+            enemyAnim.SetFloat(hash.speed, enemyMovement.speed);
+            enemyAnim.SetBool(hash.shot, true);
+            unitHealth = unit.GetComponent<Health>();
+            unitAnim = unit.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+            isShooting = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == Tags.Unit)
+        {
+            enemyMovement.speed = EnemyMovement.defaultSpeed;
+            enemyAnim.SetFloat(hash.speed, 2);
+            enemyAnim.SetBool(hash.shot, false);
+            isShooting = false;
+        }
+    }
+}

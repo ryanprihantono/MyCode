@@ -1,0 +1,118 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+
+
+public class ObjectCreator : MonoBehaviour
+{
+
+
+
+    public GameObject takashiRoom;
+    public GameObject unit;
+    public GameObject block;
+    public GameObject enemy;
+
+    public ArrayList path = new ArrayList();
+
+    //
+    public List<GameObject> unitBase = new List<GameObject>();
+    public List<GameObject> enemies = new List<GameObject>();
+
+    //map object
+    public Map map;
+
+    private int pathCounter = 0;
+
+    bool start = false;
+
+    bool m_loadstart = false;
+
+    // Use this for initialization
+    void Start()
+    {
+
+        //map object initializations
+        map = gameObject.AddComponent<Map>();
+
+
+        //enemy.active = false;
+        /*
+        unit = (GameObject)Instantiate(Resources.Load("Prefabs/Unit"));
+        unit.name = "unit";
+        unit.transform.position = map.getPosition(2, 1, 0.25F);
+        */
+
+
+        //object initialization
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Debug.Log(start);
+        if (map != null && map.IsReady() && !m_loadstart)
+        {
+            initEnemies();
+            initTakashiRoom();
+
+            initBlock();
+            m_loadstart = true;
+        }
+
+    }
+
+
+    public void initEnemies()
+    {
+        for (int i = 0; i < map.enemyPopUpPosition.Count; i++)
+        {
+            Vector3 v = map.enemyPopUpPosition[i];
+            //GameObject enemy = (GameObject)Instantiate(Resources.Load("Prefabs/Enemy"));
+            GameObject obj = (GameObject)Instantiate(enemy);
+
+            obj.name = "enemy_" + i;
+            obj.transform.position = v;
+
+
+
+            enemies.Add(obj);
+        }
+    }
+
+    public void Test()
+    {
+        start = true;
+    }
+
+    public void initTakashiRoom()
+    {
+        //Object room = Resources.Load("Prefabs/TakashiRoom");
+
+        //takashiRoom = (GameObject)Instantiate(room);
+
+        //takashiRoom.transform.position = map.takashiRoomPosition;
+        //takashiRoom.name = "takashiRoom";
+
+        GameObject obj = (GameObject)Instantiate(takashiRoom);
+        obj.transform.position = map.takashiRoomPosition;
+        obj.name = takashiRoom.name;
+    }
+    public void initBlock()
+    {
+        for (int i = 0; i < map.blockPosition.Count; i++)
+        {
+            Vector3 unitPosition = map.blockPosition[i];
+            //GameObject go = (GameObject)Instantiate(Resources.Load("Prefabs/Block"));
+            GameObject go = (GameObject)Instantiate(block);
+            go.name = "base" + i;
+            //go.transform.localScale = new Vector3(1, 0.25F, 1);
+            go.transform.position = unitPosition;
+            //go.AddComponent<Rigidbody>();
+            unitBase.Add(go);
+        }
+
+    }
+}
