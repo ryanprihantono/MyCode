@@ -1,0 +1,4 @@
+O,X,X
+X,O,X
+X,X,X
+blocks,15,8
